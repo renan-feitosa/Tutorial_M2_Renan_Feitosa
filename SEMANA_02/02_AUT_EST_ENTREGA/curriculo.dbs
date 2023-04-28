@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Sqlite" id="Project-267c" database="Sqlite" >
+	<schema name="Default" >
+		<table name="Tbl_EXPERIENCIA" >
+			<column name="ID_EXPERIENCIA" type="INTEGER" jt="4" mandatory="y" />
+			<column name="NOME_EMPRESA" type="TEXT" jt="-1" mandatory="y" />
+			<column name="ANO_INICIO" type="INTEGER" jt="4" mandatory="y" />
+			<column name="ANO_FINAL" type="INTEGER" jt="4" mandatory="y" />
+			<column name="CARGO" type="TEXT" jt="-1" mandatory="y" />
+			<column name="DETALHES" type="TEXT" jt="-1" />
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_Tbl_EXPERIENCIA" unique="PRIMARY_KEY" >
+				<column name="ID_EXPERIENCIA" />
+			</index>
+			<fk name="fk_Tbl_EXPERIENCIA" to_schema="Default" to_table="Tbl_USUARIO" >
+				<fk_column name="ID_PERFIL" pk="ID_PERFIL" />
+			</fk>
+		</table>
+		<table name="Tbl_FORMACAO" >
+			<column name="ID_FORMACAO" type="INTEGER" jt="4" mandatory="y" />
+			<column name="NOME_CURSO" type="TEXT" jt="-1" mandatory="y" />
+			<column name="ANO_INICIO" type="INTEGER" jt="4" mandatory="y" />
+			<column name="ANO_FIM" type="INTEGER" jt="4" mandatory="y" />
+			<column name="INSTITUICAO" type="TEXT" jt="-1" />
+			<column name="DIPLOMA" type="TEXT" jt="-1" />
+			<column name="DETALHES" prior="OUTROS" type="TEXT" jt="-1" />
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_Tbl_FORMACAO" unique="UNIQUE_INDEX" >
+				<column name="ID_FORMACAO" />
+			</index>
+			<index name="pk_Tbl_FORMACAO_0" unique="UNIQUE_INDEX" >
+				<column name="ID_FORMACAO" />
+			</index>
+			<fk name="fk_Tbl_FORMACAO" to_schema="Default" to_table="Tbl_USUARIO" >
+				<fk_column name="ID_PERFIL" pk="ID_PERFIL" />
+			</fk>
+		</table>
+		<table name="Tbl_Habilidades" >
+			<column name="ID_HABILIDADES" type="INTEGER" jt="4" mandatory="y" />
+			<column name="NOME_HABILIDADE" type="TEXT" jt="-1" mandatory="y" />
+			<column name="NIVEL" prior="INDICE" type="INTEGER" jt="4" mandatory="y" />
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_Tbl_Habilidades" unique="PRIMARY_KEY" >
+				<column name="ID_HABILIDADES" />
+			</index>
+			<fk name="fk_Tbl_Habilidades" to_schema="Default" to_table="Tbl_USUARIO" >
+				<fk_column name="ID_PERFIL" pk="ID_PERFIL" />
+			</fk>
+		</table>
+		<table name="Tbl_INFOS" >
+			<column name="ID_INFOS" type="INTEGER" jt="4" mandatory="y" />
+			<column name="ENDERECO" type="TEXT" jt="-1" />
+			<column name="TELEFONE" type="NUMERIC" jt="2" />
+			<column name="EMAIL" type="TEXT" jt="-1" />
+			<column name="DETALHES" type="TEXT" jt="-1" />
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_Tbl_INFOS" unique="UNIQUE_INDEX" >
+				<column name="ID_INFOS" />
+			</index>
+			<index name="pk_Tbl_INFOS_0" unique="UNIQUE_INDEX" >
+				<column name="ID_INFOS" />
+			</index>
+			<fk name="fk_Tbl_INFOS" to_schema="Default" to_table="Tbl_USUARIO" >
+				<fk_column name="ID_PERFIL" pk="ID_PERFIL" />
+			</fk>
+		</table>
+		<table name="Tbl_Personalidade" prior="Tbl_Habilidades_0" >
+			<column name="ID_PERSONALIDADE" prior="ID_HABILIDADES" type="INTEGER" jt="4" mandatory="y" />
+			<column name="NOME_PERSONALIDADE" prior="NOME_HABILIDADE" type="TEXT" jt="-1" mandatory="y" />
+			<column name="NIVEL" prior="INDICE" type="INTEGER" jt="4" mandatory="y" />
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_Tbl_Personalidade" unique="PRIMARY_KEY" >
+				<column name="ID_PERSONALIDADE" />
+			</index>
+			<fk name="fk_Tbl_Personalidade" to_schema="Default" to_table="Tbl_USUARIO" >
+				<fk_column name="ID_PERFIL" pk="ID_PERFIL" />
+			</fk>
+		</table>
+		<table name="Tbl_REALIZACOES" >
+			<column name="ID_REALIZACAO" type="INTEGER" jt="4" mandatory="y" />
+			<column name="NOME" type="TEXT" jt="-1" mandatory="y" />
+			<column name="ANO" type="INTEGER" jt="4" mandatory="y" />
+			<column name="DETALHES" type="TEXT" jt="-1" />
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<index name="pk_Tbl_REALIZACOES" unique="PRIMARY_KEY" >
+				<column name="ID_REALIZACAO" />
+			</index>
+			<fk name="fk_Tbl_REALIZACOES" to_schema="Default" to_table="Tbl_USUARIO" >
+				<fk_column name="ID_PERFIL" pk="ID_PERFIL" />
+			</fk>
+		</table>
+		<table name="Tbl_USUARIO" prior="TblUsuario" >
+			<column name="ID_PERFIL" type="INTEGER" jt="4" mandatory="y" />
+			<column name="NOME" type="TEXT" jt="-1" mandatory="y" />
+			<column name="CARGO" type="TEXT" jt="-1" mandatory="y" />
+			<column name="FOTO" type="TEXT" jt="-1" />
+			<index name="pk_Tbl_USUARIO" unique="PRIMARY_KEY" >
+				<column name="ID_PERFIL" />
+			</index>
+		</table>
+	</schema>
+	<connector name="Sqlite" database="Sqlite" driver_class="org.sqlite.JDBC" driver_jar="sqlite-jdbc-3.40.0.0.jar" driver_desc="Standard" host="localhost" port="7210" instance="C:/Users/Inteli/Documents/GitHub/Tutorial_M2_Renan_Feitosa/SEMANA_02/02_AUT_EST_ENTREGA/curriculo.db" useSystemProxy="false" />
+	<layout name="Main Layout" id="Layout-1fff" show_relation="columns" >
+		<entity schema="Default" name="Tbl_EXPERIENCIA" color="C1D8EE" x="96" y="304" />
+		<entity schema="Default" name="Tbl_FORMACAO" color="C1D8EE" x="48" y="48" />
+		<entity schema="Default" name="Tbl_Habilidades" color="C1D8EE" x="704" y="304" />
+		<entity schema="Default" name="Tbl_INFOS" color="C1D8EE" x="544" y="480" />
+		<entity schema="Default" name="Tbl_Personalidade" color="3986C1" x="208" y="512" />
+		<entity schema="Default" name="Tbl_REALIZACOES" color="C1D8EE" x="688" y="80" />
+		<entity schema="Default" name="Tbl_USUARIO" color="C1D8EE" x="400" y="48" />
+	</layout>
+</project>
