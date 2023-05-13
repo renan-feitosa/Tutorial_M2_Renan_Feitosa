@@ -10,7 +10,7 @@
   <p><a href="/inserir.html">INSERIR NOVO USUÁRIO</a></p>
 
   <script>
-    const url = '/usuarios';
+    const url = '/alunos';
   
     fetch(url)
       .then((response) => {
@@ -20,7 +20,7 @@
         let usuarios = data;
         let saida = '';
         usuarios.map(function(usuario) {
-          saida += '<strong> '+ `${usuario.nome_completo}` + '</strong> ' + `${usuario.email}`  + ' - ' +  `${usuario.telefone}`;
+          saida += '<strong> '+ `${usuario.nome_completo}` + '</strong> ' + `${usuario.email}`  + ' - ' +  `${usuario.telefone}` + ' - ' +  `${usuario.Idade}`;
           saida += ' - <a href="/atualizar.html?userId=' + `${usuario.userId}` + '">EDITAR</a>';
           saida += ' | <a href="/removeUsuario?userId='+`${usuario.userId}`+'">REMOVER</a></br>';
         });
