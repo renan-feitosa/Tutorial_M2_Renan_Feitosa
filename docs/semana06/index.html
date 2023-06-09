@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/fontawesome.min.css">
+    <title>Currículo</title>
+</head>
+<body>
+    <i class="fa fa-minus"></i>
+    <div id="usuario-container">
+        <div id="foto">
+            <img src="/foto-usuario.png" alt="Foto do usuário">
+        </div>
+
+        <div id="identificacao">
+            <h1>Nome Usuário</h1>
+            <p>Cargo</p>
+        </div>
+    </div>
+
+    <div id="corpo">
+        <div id="qualificacoes" class="accordion">
+            <div id="formacao" class="card">
+                <div class="card-header">
+                    <h2>Formação <span class="fa fa-plus"></span></h2>
+                </div>
+                <div class="card-body">
+                    <p class="titulo"><span class="curso">Curso</span> | 2000 - 2003</p>
+                    <p class="descricao">Descrever as características do curso: instituição, diploma obtido, etc...</p>
+                
+                    <p class="titulo"><span class="curso">Curso</span> | 2000 - 2003</p>
+                    <p class="descricao">Descrever as características do curso: instituição, diploma obtido, etc...</p>
+                
+                    <p class="titulo"><span class="curso">Curso</span> | 2000 - 2003</p>
+                    <p class="descricao">Descrever as características do curso: instituição, diploma obtido, etc...</p>
+                </div>
+            </div>
+
+            <div id="experienca" class="card">
+                <div class="card-header">
+                    <h2>Experiência <span class="fa fa-plus"></span></h2>
+                </div>
+                <div class="card-body">
+                    <p class="titulo"><span class="curso">Nome da empresa</span> | 2000 - 2003 | <span class="cargo">Cargo</span></p>
+                    <p class="descricao">Descrever as características do curso: instituição, diploma obtido, etc...</p>
+                    
+                    <p class="titulo"><span class="curso">Nome da empresa</span> | 2000 - 2003 | <span class="cargo">Cargo</span></p>
+                    <p class="descricao">Descrever as características do curso: instituição, diploma obtido, etc...</p>
+                    
+                    <p class="titulo"><span class="curso">Nome da empresa</span> | 2000 - 2003 | <span class="cargo">Cargo</span></p>
+                    <p class="descricao">Descrever as características do curso: instituição, diploma obtido, etc...</p>
+                </div>
+            </div>
+
+            <div id="realizacoes" class="card">
+                <div class="card-header">
+                    <h2>Realizações <span class="fa fa-plus"></span></h2>
+                </div>
+                <div class="card-body">
+                    <p class="titulo"><span class="curso">Realizacao</span> | 2000 - 2003</p>
+                    <p class="descricao">Descrever a realizaçao, reconhecimento, etc...</p>
+
+                    <p class="titulo"><span class="curso">Realizacao</span> | 2000 - 2003</p>
+                    <p class="descricao">Descrever a realizaçao, reconhecimento, etc...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="aside">
+            <div id="sobre-mim">
+                <h2>Sobre mim</h2>
+                <div id="divider"></div>
+                <p>Endereço</p>
+                <p>(01) 12345-6789</p>
+                <p>mail@mail.com</p>
+            </div>
+
+            <div id="habilidades">
+                <h2>Habilidades</h2>
+                <div class="divider"></div>
+
+                <div class="habilidade-nivel">
+                    <p class="habilidade">Lorem ipsum</p>
+                    <p>Intermediário</p>
+                </div>
+
+                <div class="habilidade-nivel">
+                    <p class="habilidade">Lorem ipsum</p>
+                    <p>Intermediário</p>
+                </div>
+
+                <div class="habilidade-nivel">
+                    <p class="habilidade">Lorem ipsum</p>
+                    <p>Intermediário</p>
+                </div>
+            </div>
+
+            <div id="personalidade">
+                <h2>Personalidade</h2>
+                <div class="divider"></div>
+                
+                <div class="habilidade-nivel">
+                    <p class="habilidade">Lorem ipsum</p>
+                    <p>Intermediário</p>
+                </div>
+                <div class="habilidade-nivel">
+                    <p class="habilidade">Lorem ipsum</p>
+                    <p>Intermediário</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".card-header").click(function(){
+                $(".card .card-body").slideUp()
+                $(".card .card-header span").removeClass("fa-minus").addClass("fa-plus");
+                $(this).next(".card-body").slideDown()
+                $(this).children("span").removeClass("fa-plus").addClass("fa-minus")
+            })
+        })
+    </script>
+</body>
+</html>
