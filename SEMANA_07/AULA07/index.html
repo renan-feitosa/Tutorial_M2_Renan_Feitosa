@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Mudar Cor</title>
+</head>
+<body>
+    <table id="tabela" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>José</td>
+            <td>123456789</td>
+        </tr>
+    </table>
+
+    <button onclick="mudaCor(), cont()" style="margin-top:1rem;">Mudar cor da tabela</button>
+    <button onclick="mudaBranco()" style="margin-top:1rem;">Voltar cor padrão</button>
+
+    <script>
+        function mudaCor() {
+            var cor = geradorCor();
+            document.getElementById('tabela').style.backgroundColor = cor;
+        }
+
+        function mudaBranco(){
+            document.getElementById('tabela').style.backgroundColor = '#FFF';
+        }
+
+        function geradorCor() {
+            var digitos = '0123456789ABCDEF';
+            var cor = '#';
+            for (var i = 0; i < 6; i++) {
+                cor += digitos[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+    </script>
+</body>
+</html>
